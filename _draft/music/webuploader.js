@@ -2968,23 +2968,43 @@
                     owner.trigger( e.type );
                 };
     
-                input.on( 'change', function( e ) {
-                    var fn = arguments.callee,
-                        clone;
+                // input.on( 'change', function( e ) {
+                //     var fn = arguments.callee,
+                //         clone;
     
+                //     me.files = e.target.files;
+    
+                //     // reset input
+                //     clone = this.cloneNode( true );
+                //     this.parentNode.replaceChild( clone, this );
+    
+                //     input.off();
+                //     input = $( clone ).on( 'change', fn )
+                //             .on( 'mouseenter mouseleave', mouseHandler );
+    
+                //     owner.trigger('change');
+                // });
+                var changeFn = (function even(that, e){
+ 
+                    var clone;
+             
                     me.files = e.target.files;
-    
+             
                     // reset input
-                    clone = this.cloneNode( true );
-                    this.parentNode.replaceChild( clone, this );
-    
+                    clone = that.cloneNode( true );
+                    clone.value = null;
+                    that.parentNode.replaceChild( clone, that );
+             
                     input.off();
-                    input = $( clone ).on( 'change', fn )
-                            .on( 'mouseenter mouseleave', mouseHandler );
-    
+                    input = $(clone).on('change', function(e){
+                        even(this, e);
+                    }).on('mouseenter mouseleave', mouseHandler);
+             
                     owner.trigger('change');
                 });
-    
+                  input.on('change', function(e){
+                    changeFn(this, e);
+                });
                 lable.on( 'mouseenter mouseleave', mouseHandler );
     
             },
