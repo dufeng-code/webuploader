@@ -1,10 +1,10 @@
 {
-  "name": "WebUploader",
-  "version": "0.1.8-alpha",
+  "name": "df-webuploader",
+  "version": "0.1.9",
   "description": "WebUploader是一个简单的以Html5为主，Flash为辅的现代文件上传组件。在现代的浏览器里面能充分发挥html5的优势，同时又不摒弃主流IE浏览器，延用原来的Flash运行时。两套运行时，同样的调用方式，可供用户任意选用。WebUploader采用大文件分片并发上传，极大的提高了文件上传效率。",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fex-team/webuploader.git"
+    "url": "git+https://github.com/fex-team/webuploader.git"
   },
   "keywords": [
     "chunk",
@@ -13,9 +13,7 @@
     "flash"
   ],
   "author": "fex-team",
-  "license": "BSD",
-  "gitHead": "7f92712020f66940ead10f73c16a03305b03259f",
-  "readmeFilename": "README.md",
+  "license": "BSD-2-Clause",
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-size": "0.1.0",
@@ -30,5 +28,17 @@
     "grunt-contrib-qunit": "0.4.0",
     "grunt-contrib-connect": "0.7.1",
     "load-grunt-tasks": "0.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/fex-team/webuploader/issues"
+  },
+  "homepage": "https://github.com/fex-team/webuploader#readme",
+  "main": "Gruntfile.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
